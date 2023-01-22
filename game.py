@@ -6,22 +6,46 @@ import keyboard
 exit = False
 while not exit:
 
-    phrase = None
+    # Principais variáveis globais
+    phrase = ''
     choice_game = None
-    continue_game = None
 
+    # Itens do jogo
+    items = []
+    sword_lvl_1 = ['Espada Enferrujada', 1]
+    sword_lvl_2 = ['Espada Boa', 3]
+    sword_lvl_3 = ['Espada Lendária', 7]
+    items.extend([sword_lvl_1, sword_lvl_2, sword_lvl_3])
+
+    # Inventário
+    inventory = []
+    
+    # Monstros
+    def monster_1():
+         monster_1_life = 2
+         print('Você encontrou um lobo')
+
+    # Efeito visual de digitação
     def typing_effect():
-        for letter in phrase:
-            print(letter, end='', flush=True)
-            time.sleep(0.05)   
-            
+          for letter in phrase:
+               print(letter, end='', flush=True)
+               time.sleep(0.05)  
+     
+    def choice_input():
+         global choice_game
+         choice_game = int(input(''))
+    
+    # Segunda parte do jogo
+    def game_chapter2():
+         something = 1
 
-
-
+    # Introdução do jogo        
     def game_intro():
             global phrase
             global choice_game
-            phrase = '''Na terra de Eldrida, há muito tempo atrás, vivia um reino próspero e pacífico governado pelo justo Rei Harold. No entanto, um mal ancestral, conhecido como o Dragão Negro, foi despertado e começou a destruir tudo em seu caminho. \n A fumaça de suas chamas cobria o céu, e as cidades foram destruídas, deixando muitos mortos e feridos. \nO rei Harold chamou todos os guerreiros valentes, magos poderosos e ladrões astutos para lutar contra o Dragão Negro \n e restaurar a paz no reino. Ele ofereceu uma recompensa para aqueles que conseguirem matar o Dragão Negro e trazer de volta a tranquilidade para o seu povo. \nVocê é um desses aventureiros, pronto para enfrentar desafios e perigos para salvar o reino de Eldrida e ganhar a recompensa do rei. Sua jornada começa agora, e a sorte estará ao seu lado. \n\n\n\n\n'''
+            global items
+            global inventory
+            #phrase = '''Na terra de Eldrida, há muito tempo atrás, vivia um reino próspero e pacífico governado pelo justo Rei Harold. No entanto, um mal ancestral, conhecido como o Dragão Negro, foi despertado e começou a destruir tudo em seu caminho. \n A fumaça de suas chamas cobria o céu, e as cidades foram destruídas, deixando muitos mortos e feridos. \nO rei Harold chamou todos os guerreiros valentes, magos poderosos e ladrões astutos para lutar contra o Dragão Negro \n e restaurar a paz no reino. Ele ofereceu uma recompensa para aqueles que conseguirem matar o Dragão Negro e trazer de volta a tranquilidade para o seu povo. \nVocê é um desses aventureiros, pronto para enfrentar desafios e perigos para salvar o reino de Eldrida e ganhar a recompensa do rei. Sua jornada começa agora, e a sorte estará ao seu lado. \n\n\n\n\n'''
             typing_effect()
 
             frase = ''' .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -41,25 +65,55 @@ while not exit:
             typing_effect()
 
             print('1. Me aproximo da cabana')
-            print('2. Continuo meu caminho')
-            choice_game = int(input('')) 
+            print('2. Continuo meu caminho\n')
+            choice_input()
             if choice_game == 1:
                  phrase = '''A cabana realmente está abandonada e a porta não está trancada, o que você faz? \n\n\n'''
                  typing_effect()
                  print('1. Abro a porta e entro na cabana')
-                 print('2. Vou embora')
-                 choice_game = int(input(''))
+                 print('2. Vou embora\n')
+                 choice_input()
                  if choice_game == 1:
-                      phrase = 'Você entra na cabana'
+                      phrase = 'Você entra na cabana \n'
                       typing_effect()
-                 if choice_game == 2:
+                      print('1. Vasculhar')
+                      print('2. Sair\n')
+                      choice_input()
+                      if choice_game == 1:
+                           time.sleep(0.1)
+                           print('Você encontrou uma espada enferrujada\n')
+                           print('1. Pegar')
+                           print('2. Sair da cabana')
+                           choice_input()
+                           if choice_game == 1:
+                                inventory.append(items[0])
+                                phrase = 'Você continua sua jornada'
+                                typing_effect()
+                                game_chapter2()
+                                
+                           elif choice_game == 2:
+                                phrase = 'Você continua sua jornada'
+                                typing_effect()
+                                game_chapter2()
+
+                                
+                      elif choice_game == 2:
+                           phrase = 'Você continua sua jornada'
+                           typing_effect()
+                           game_chapter2()
+
+                 elif choice_game == 2:
                       phrase = 'Você continua sua jornada'
-                      typing_effect
+                      typing_effect()
+                      game_chapter2()
 
             elif choice_game == 2:
-                 print('Você continua sua jornada')
+                 phrase = 'Você continua sua jornada'
+                 typing_effect()
+                 game_chapter2()
                             
 
+    # Menu do jogo
     print('The Untold History: Eldrida')
     print('1. Iniciar')
     print('2. Sair')
