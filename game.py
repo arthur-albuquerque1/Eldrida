@@ -30,10 +30,17 @@ while not exit:
           for letter in phrase:
                print(letter, end='', flush=True)
                time.sleep(0.05)  
-     
+    
+    # Sistema de escolhas
     def choice_input():
          global choice_game
          choice_game = int(input(''))
+    
+    
+    def next_intro():
+         phrase = 'Você continua sua jornada'
+         typing_effect()
+         game_chapter2()
     
     # Segunda parte do jogo
     def game_chapter2():
@@ -87,30 +94,20 @@ while not exit:
                            choice_input()
                            if choice_game == 1:
                                 inventory.append(items[0])
-                                phrase = 'Você continua sua jornada'
-                                typing_effect()
-                                game_chapter2()
+                                next()
                                 
                            elif choice_game == 2:
-                                phrase = 'Você continua sua jornada'
-                                typing_effect()
-                                game_chapter2()
+                                next()
 
                                 
                       elif choice_game == 2:
-                           phrase = 'Você continua sua jornada'
-                           typing_effect()
-                           game_chapter2()
+                           next()
 
                  elif choice_game == 2:
-                      phrase = 'Você continua sua jornada'
-                      typing_effect()
-                      game_chapter2()
+                      next()
 
             elif choice_game == 2:
-                 phrase = 'Você continua sua jornada'
-                 typing_effect()
-                 game_chapter2()
+                 next()
                             
 
     # Menu do jogo
