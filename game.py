@@ -11,11 +11,17 @@ while not exit:
     choice_game = None
 
     # Itens do jogo
-    items = []
+    swords = []
     sword_lvl_1 = ['Espada Enferrujada', 1]
     sword_lvl_2 = ['Espada Boa', 3]
     sword_lvl_3 = ['Espada Lendária', 7]
-    items.extend([sword_lvl_1, sword_lvl_2, sword_lvl_3])
+    swords.extend([sword_lvl_1, sword_lvl_2, sword_lvl_3])
+
+    armor = []
+    armor_lvl_1 = ['Armadura de couro', 1]
+    armor_lvl_2 = ['Armadura de Ferro', 3]
+    armor_lvl_3 = ['Armadura Lendária', 7]
+    armor.extend([armor_lvl_1, armor_lvl_2, armor_lvl_3])
 
     # Inventário
     inventory = []
@@ -24,6 +30,19 @@ while not exit:
     def monster_1():
          monster_1_life = 2
          print('Você encontrou um lobo')
+
+    # Sistema de vida
+    damage = 0
+    life_initial = 2
+    life = life_initial + inventory[4] - damage 
+
+         
+
+         
+    
+    # Sistema de combate
+    def combat():
+         combat = 2
 
     # Efeito visual de digitação
     def typing_effect():
@@ -93,7 +112,7 @@ while not exit:
                            print('2. Sair da cabana')
                            choice_input()
                            if choice_game == 1:
-                                inventory.append(items[0])
+                                inventory.append(swords[0])
                                 next()
                                 
                            elif choice_game == 2:
